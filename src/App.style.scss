@@ -1,0 +1,13 @@
+@import './common.scss';
+
+.main-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.content {
+    flex: 1 0 auto;
+}

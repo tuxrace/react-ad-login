@@ -1,0 +1,51 @@
+@import './variables';
+
+@mixin size-22() {
+    font-size: 22px;
+    line-height: 28px;
+}
+
+@mixin size-16 () {
+    font-size: 16px;
+    line-height: 22px;
+}
+
+@mixin size-14 {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    @include size-22()
+}
+
+.body-1 {
+    @include size-16();
+}
+
+.body-2 {
+    @include size-14();
+}
+
+.color-grey {
+    color: $ad-grey;
+}
+
+.gutter-bottom {
+    margin: 0 0 $gutter-bottom-size;
+}
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 540px;
+    }
+}
