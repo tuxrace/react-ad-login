@@ -26,3 +26,12 @@
     width: 100%;
     padding: #{$spacing}px
 }
+
+
+.error-message {
+    margin-top: -1px;
+    padding: #{$spacing}px;
+    background-color: #dcdcdc;
+    border: #bbbbbb 1px solid;
+    border-radius: 0 0 4px 4px;
+}

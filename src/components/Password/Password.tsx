@@ -13,7 +13,7 @@ const Password: React.FC<Props> = ({ setCreate }) => {
     return (
         <div className="row content margin-t-6">
             <div className="col-12 row password-title-margin">
-                <h1 className="col-5 title"> <a href="" onClick={() => history.push('/')}>{"<"}</a> </h1>
+                <h1 className="col-5 title"> <a href="#" onClick={() => history.push('/')}>{"<"}</a> </h1>
                 <h1 className="col-7 title">Welcome</h1>
             </div>
             <p className="col-12 body-1 color-grey text-center">joshsmith</p>

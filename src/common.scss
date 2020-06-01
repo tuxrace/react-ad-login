@@ -44,6 +44,10 @@ p {
     margin: 0 0 $gutter-bottom-size;
 }
 
+.gutter-top {
+    margin: $gutter-bottom-size 0 0;
+}
+
 @media (min-width: 1200px) {
     .container{
         max-width: 540px;

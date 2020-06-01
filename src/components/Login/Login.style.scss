@@ -28,16 +28,18 @@
 }
 
 .fade-enter {
+    transform: translateX(100%);
     opacity: 0;
 }
 
 .fade-enter-active {
-    transition: opacity 300ms ease-out, transform 300ms ease-out;
+    transform: translateX(0%);
+    transition: opacity 500ms ease-out, transform 500ms ease-out;
     opacity: 1;
 }
+
 .fade-exit {
-    transition: opacity 300ms ease-in, transform 300ms ease-in;
-    opacity: 1;
+    opacity: 0;
 }
 .fade-exit-active {
     opacity: 0;
