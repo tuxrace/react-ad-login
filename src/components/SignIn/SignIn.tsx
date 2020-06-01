@@ -1,46 +1,36 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import NewTo from '../NewTo';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import InputText from '../InputText';
 import './SignIn.style.scss';
 import useInput from '../../hooks/useInput';
-import useScrollTop from '../../hooks/useScrollTop';
 
-const SignIn: React.FC<{create: boolean}> = ({create}) => {
+const SignIn = () => {
     const history = useHistory();
-    useInput();
-    useScrollTop();
     const [buttonText, setButtonText] = useState('Next');
     const formRef = useRef<HTMLFormElement>(null);
+    useInput();
     const user = "johnsmith";
 
     const validateUser = () => {
         const form = formRef.current as HTMLFormElement;
         const inputUsername = document.querySelector("#inputUsername") as HTMLInputElement;
         setButtonText("Verifying");
-        inputUsername.setCustomValidity("");
 
         const verifyUsername = () => {
             if (inputUsername.value !== user) {
                 inputUsername.setCustomValidity("Error");
                 setButtonText("Next");
                 form.classList.add('was-validated'); // bootstrap set validation message
-            } else {
-                history.push('/password');
+                return;
             }
+            history.push('/password');
         }
         setTimeout(verifyUsername, 1000);
     }
 
     return (
         <div className="row">
-            {create && (
-                <div className="alert-panel">
-                    <div className="alert alert-primary success-alert" role="alert">
-                        Account Created Successfully
-                    </div>
-                </div>
-            )}
             <h1 className="col-12 title title-margin">Sign In</h1>
             <div className="col-12">
                 <form className="form" ref={formRef} >

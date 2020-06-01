@@ -1,11 +1,28 @@
-import React, { Dispatch, SetStateAction } from 'react'
-import './Password.style.scss';
+import React, { useRef } from 'react'
 import NewTo from '../NewTo';
 import { useHistory } from 'react-router-dom';
 import InputText from '../InputText';
+import './Password.style.scss';
+import useInput from '../../hooks/useInput';
 
 const Password = () => {
     const history = useHistory();
+    const formRef = useRef<HTMLFormElement>(null);
+    useInput();
+    const password = 'password';
+
+    const verify = () => {
+        const form = formRef.current as HTMLFormElement;
+        const loginPassword = document.querySelector("#loginPassword") as HTMLInputElement;
+
+        setTimeout(() => {
+            if (loginPassword.value !== password) {
+                loginPassword.setCustomValidity("error");
+                form.classList.add('was-validated');
+                return;
+            }
+        }, 1000)
+    }
 
     return (
         <div className="row">
@@ -15,8 +32,10 @@ const Password = () => {
             </div>
             <p className="col-12 body-2 color-grey text-center">johnsmith</p>
             <div className="col-12 password-input-margin">
-                <InputText type="password" id="enterPassword" label="Password" />
-                <button type="button" className="btn btn-primary btn-login gutter-top gutter-bottom">Sign In</button>
+                <form className="form" ref={formRef}>
+                    <InputText type="password" id="loginPassword" label="Password" message="Invalid credentials" />
+                    <button type="button" className="btn btn-primary btn-login gutter-top gutter-bottom" onClick={verify}>Sign In</button>
+                </form>
             </div>
             <div className="col-12 gutter-top">
                 <NewTo />
