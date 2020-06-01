@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 
 type Props = {
     id: string;
-    message: string;
+    message?: string;
     label: string;
     [otherProps:string]: any;
 }

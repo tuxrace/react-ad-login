@@ -45,9 +45,9 @@ const CreateAccount: React.FC<{ setCreate: Dispatch<SetStateAction<boolean>> }> 
     }, []);
 
     return (
-        <div className="row margin-t-6">
+        <div className="row">
             <form className="form" ref={formRef}>
-                <h1 className="col-12 title title-margin">CreateAccount</h1>
+                <h1 className="col-12 title title-margin">Create account</h1>
                 <div className="col-12 d-flex">
                     <div className="col-6 pl-0">
                         <InputText id="firstName" label="First name" message="Please enter your first name" required />
