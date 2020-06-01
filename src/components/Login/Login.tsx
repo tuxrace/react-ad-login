@@ -22,7 +22,7 @@ const Login = () => {
 
   return (
     <TransitionGroup>
-      <CSSTransition key={location.pathname} classNames="fade" timeout={500}>
+      <CSSTransition key={location.pathname} classNames="fade" timeout={300}>
         <Switch location={location}>
           <Route exact path="/" children={<SignIn setCreate={setCreate} />} />
           <Route exact path="/password" children={<Password setCreate={setCreate} />} />

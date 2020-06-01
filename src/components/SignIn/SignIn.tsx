@@ -1,4 +1,4 @@
-import React, { useContext, Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import './SignIn.style.scss';
 import NewTo from '../NewTo';
 import { useHistory } from 'react-router-dom';
@@ -9,15 +9,28 @@ type Props = {
 
 const SignIn: React.FC<Props> = ({ setCreate }) => {
     const history = useHistory();
-
+    const [buttonText, setButtonText] = useState('Next');
     const user = "johnsmith";
 
-    const handleClick = () => {
+    const validateUser = () => {
         const form = document.querySelector("#form1") as HTMLFormElement;
-        // const inputUsername = document.querySelector("#inputUsername") as HTMLInputElement;
-        if (user)
-        // bootstrap set validation message
-        form.classList.add('was-validated');
+        const inputUsername = document.querySelector("#inputUsername") as HTMLInputElement;
+
+        setButtonText("Verifying");
+        inputUsername.setCustomValidity("");
+
+        setTimeout(() => {
+            if (inputUsername.value !== user) {
+                inputUsername.setCustomValidity("Error");
+                setButtonText("Next");
+
+                // bootstrap set validation message
+                form.classList.add('was-validated');
+            } else {
+                history.push('/password');
+            }
+        }, 1000);
+       
     }
 
     return (
@@ -26,11 +39,11 @@ const SignIn: React.FC<Props> = ({ setCreate }) => {
             <div className="col-12">
                 <form id="form1" noValidate>
                     <label className="body-1"> Username </label>
-                    <input type="text" className="input-text" id="inputUsername" name="inputUsername" placeholder="Username" required />
+                    <input type="text" className="input-text" id="inputUsername" placeholder="Username" required />
                     <div className="invalid-feedback error-message">
                         The username is not recognized
                     </div>
-                    <button type="button" className="btn btn-primary btn-login gutter-top gutter-bottom" onClick={handleClick}>Next</button>
+    <button type="button" className="btn btn-primary btn-login gutter-top gutter-bottom" onClick={validateUser}>{buttonText}</button>
                 </form>
             </div>
             <div className="col-12">
