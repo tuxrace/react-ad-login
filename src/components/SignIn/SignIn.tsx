@@ -1,44 +1,51 @@
-import React, { Dispatch, SetStateAction, useState } from 'react'
-import './SignIn.style.scss';
+import React, { useState, useRef, useEffect } from 'react'
 import NewTo from '../NewTo';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import InputText from '../InputText';
+import './SignIn.style.scss';
+import useInput from '../../hooks/useInput';
 
-type Props = {
-    setCreate: Dispatch<SetStateAction<boolean>>;
-};
-
-const SignIn: React.FC<Props> = ({ setCreate }) => {
+const SignIn: React.FC<{create: boolean}> = ({create}) => {
     const history = useHistory();
+    const location = useLocation();
+    useInput();
     const [buttonText, setButtonText] = useState('Next');
+    const formRef = useRef<HTMLFormElement>(null);
     const user = "johnsmith";
 
-    const validateUser = () => {
-        const form = document.querySelector("#form1") as HTMLFormElement;
-        const inputUsername = document.querySelector("#inputUsername") as HTMLInputElement;
+    console.log('LOC', location);
 
+    const validateUser = () => {
+        const form = formRef.current as HTMLFormElement;
+        const inputUsername = document.querySelector("#inputUsername") as HTMLInputElement;
         setButtonText("Verifying");
         inputUsername.setCustomValidity("");
 
-        setTimeout(() => {
+        const verifyUsername = () => {
             if (inputUsername.value !== user) {
                 inputUsername.setCustomValidity("Error");
                 setButtonText("Next");
-
-                // bootstrap set validation message
-                form.classList.add('was-validated');
+                form.classList.add('was-validated'); // bootstrap set validation message
             } else {
                 history.push('/password');
             }
-        }, 1000);
+        }
+        setTimeout(verifyUsername, 1000);
     }
 
     return (
         <div className="row content margin-t-6">
+            {create && (
+                <div className="alert-panel">
+                    <div className="alert alert-primary success-alert" role="alert">
+                        Account Created Successfully
+                    </div>
+                </div>
+            )}
             <h1 className="col-12 title title-margin">Sign In</h1>
             <div className="col-12">
-                <form id="form1" noValidate>
-                    <InputText name="inputUsername" label="Username" message="The username is not recognized" />
+                <form className="form" ref={formRef} >
+                    <InputText id="inputUsername" label="Username" message="The username is not recognized" />
                     <button type="button" className="btn btn-primary btn-login gutter-top gutter-bottom" onClick={validateUser}>{buttonText}</button>
                 </form>
             </div>

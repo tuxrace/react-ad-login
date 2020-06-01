@@ -3,11 +3,7 @@ import './Password.style.scss';
 import NewTo from '../NewTo';
 import { useHistory } from 'react-router-dom';
 
-type Props = {
-    setCreate: Dispatch<SetStateAction<boolean>>;
-};
-
-const Password: React.FC<Props> = ({ setCreate }) => {
+const Password = () => {
     const history = useHistory();
 
     return (

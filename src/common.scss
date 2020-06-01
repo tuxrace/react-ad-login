@@ -57,3 +57,17 @@ p {
 form {
     width: 100%;
 }
+
+.alert-panel {
+    position: relative;
+    width: 100%;
+}
+
+.success-alert {
+    z-index: 1000;
+    position: absolute;
+    top: 12px;
+    opacity: 0.9;
+    width: 100%;
+    text-align: center;
+}
