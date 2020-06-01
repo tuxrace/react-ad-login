@@ -8,7 +8,7 @@ const CreateAccount: React.FC<{ setCreate: Dispatch<SetStateAction<boolean>> }> 
     const formRef = useRef<HTMLFormElement>(null);
     const history = useHistory();
     useInput();
-    
+
     const validateUser = () => {
         const form = formRef.current as HTMLFormElement;
         let usernameSame = true;
@@ -48,11 +48,11 @@ const CreateAccount: React.FC<{ setCreate: Dispatch<SetStateAction<boolean>> }> 
         <div className="row margin-t-6">
             <form className="form" ref={formRef}>
                 <h1 className="col-12 title title-margin">CreateAccount</h1>
-                <div className="col-12 row">
-                    <div className="col-6">
+                <div className="col-12 d-flex">
+                    <div className="col-6 pl-0">
                         <InputText id="firstName" label="First name" message="Please enter your first name" required />
                     </div>
-                    <div className="col-6">
+                    <div className="col-6 pr-0">
                         <InputText id="lasttName" label="Last name" message="Please enter your last name"required />
                     </div>
                 </div>
