@@ -18,7 +18,6 @@ Open locally at http://localhost:3000
 |---        |          ---|
 | Johnsmith | password    |
 
-
 ### Screen
 ![](login.png)
 
@@ -29,3 +28,18 @@ Open locally at http://localhost:3000
 - Typescript
 - Bootstrap
 - SASS
+
+### Layout Guide
+SASS Variables
+
+all sass variable are in `variabales.scss`
+
+- `$spacing`
+    - value is 8
+    - If we need to add margin we multiply by * $spacing
+    - Example ```padding-top: calc(#{spacing} * 3px)``` will give us 24px
+
+- `$gutter-bottom-size`
+    - value is 12px
+    - This is the margin bottom between divs
+    - Example ```margin-bottom: $gutter-bottom-size```
