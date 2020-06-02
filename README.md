@@ -4,6 +4,12 @@ Login screen for web and mobile built using React
 ### Working Demo
 https://github.com/tuxrace/react-ad-login
 
+### Video Demo
+[get it here](./video.mov)
+
+### Screenshot
+![](login.png)
+
 ## Install
 
 ```bash
@@ -18,8 +24,7 @@ Open locally at http://localhost:3000
 |---        |          ---|
 | Johnsmith | password    |
 
-### Screen
-![](login.png)
+
 
 ## Technologies used
 
