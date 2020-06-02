@@ -2,7 +2,7 @@
 Login screen for web and mobile built using React
 
 ### Working Demo
-https://github.com/tuxrace/react-ad-login
+https://tuxrace.github.io/react-ad-login/
 
 ### Video Demo
 [get it here](./video.mov)
