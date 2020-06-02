@@ -32,7 +32,7 @@ Open locally at http://localhost:3000
 ### Layout Guide
 SASS Variables
 
-all sass variable are in `variabales.scss`
+all sass variable are in `variables.scss`
 
 - `$spacing`
     - value is 8
