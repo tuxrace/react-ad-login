@@ -16,7 +16,7 @@ Open locally at http://localhost:3000
 
 | Username  | Password    | 
 |---        |          ---|
-| Johnsmith | Password    |
+| Johnsmith | password    |
 
 
 ### Screen
