@@ -4,13 +4,13 @@ import { useHistory } from 'react-router-dom';
 import InputText from '../InputText';
 import './SignIn.style.scss';
 import useInput from '../../hooks/useInput';
+import { USERNAME } from '../../config';
 
 const SignIn = () => {
     const history = useHistory();
     const [buttonText, setButtonText] = useState('Next');
     const formRef = useRef<HTMLFormElement>(null);
     useInput();
-    const user = "johnsmith";
 
     const validateUser = () => {
         const form = formRef.current as HTMLFormElement;
@@ -18,7 +18,7 @@ const SignIn = () => {
         setButtonText("Verifying");
 
         const verifyUsername = () => {
-            if (inputUsername.value !== user) {
+            if (inputUsername.value !== USERNAME) {
                 inputUsername.setCustomValidity("Error");
                 setButtonText("Next");
                 form.classList.add('was-validated'); // bootstrap set validation message
