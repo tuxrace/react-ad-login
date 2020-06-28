@@ -45,6 +45,6 @@ all sass variable are in `variables.scss`
     - Example ```padding-top: calc(#{spacing} * 3px)``` will give us 24px
 
 - `$gutter-bottom-size`
-    - value is 12px
+    - value is 12px.
     - This is the margin bottom between divs
     - Example ```margin-bottom: $gutter-bottom-size```
