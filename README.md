@@ -1,5 +1,5 @@
 # React AD login
-Login screen for web and mobile built using React
+Login screen for web and mobile built using React.
 
 ### Working Demo
 https://tuxrace.github.io/react-ad-login/
